@@ -8,12 +8,10 @@ const Login = () => {
   return (
     <Container maxWidth="sm">
       <Box sx={{ marginTop: 8 }}>
-        <Typography variant="h4" align="center" gutterBottom color='black'>
-          Login
-        </Typography>
+        <Typography variant="h4" align="center" gutterBottom>Login</Typography>
         <LoginFormOrganism />
         <Box mt={2} textAlign="center">
-          <Typography variant="body2" color='black'>
+          <Typography variant="body2">
             Noch kein Konto? <Link to="/signup">Jetzt registrieren</Link>
           </Typography>
         </Box>

@@ -8,9 +8,7 @@ const Signup = () => {
   return (
     <Container maxWidth="sm">
       <Box sx={{ marginTop: 8 }}>
-        <Typography variant="h4" align="center" gutterBottom>
-          Registrieren
-        </Typography>
+        <Typography variant="h4" align="center" gutterBottom>Registrieren</Typography>
         <SignupFormOrganism />
         <Box mt={2} textAlign="center">
           <Typography variant="body2">

@@ -71,9 +71,7 @@ const SignupFormOrganism = () => {
             error={touched.password && errors.password ? errors.password : undefined}
           />
 
-          <ButtonAtom type="submit" disabled={isSubmitting}>
-            Registrieren
-          </ButtonAtom>
+          <ButtonAtom type="submit" disabled={isSubmitting}>Registrieren</ButtonAtom>
         </Form>
       )}
     </Formik>
