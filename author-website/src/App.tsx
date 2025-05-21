@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LoginPage from "./components/pages/LoginPage";
-import SignupPage from "./components/pages/SignupPage";
-import OverviewPage from "./components/pages/OverviewPage";
-import AuthorDetailPage from "./components/pages/AuthorDetailPage";
-import AuthorEditPage from "./components/pages/AuthorEditPage";
-import AuthorCreatePage from "./components/pages/AuthorCreatePage";
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
+import OverviewPage from "./pages/OverviewPage";
+import AuthorDetailPage from "./pages/AuthorDetailPage";
+import AuthorEditPage from "./pages/AuthorEditPage";
+import AuthorCreatePage from "./pages/AuthorCreatePage";
 
 function App() {
 
@@ -22,4 +22,4 @@ function App() {
   );
 }
 
- export default App;
+export default App;

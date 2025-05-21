@@ -1,7 +1,17 @@
-import { Box } from "@mui/material";
+import LoginFormOrganism from '../components/organisms/LoginFormOrganism';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 
-function LoginPage() {
-  return <Box>Login</Box>;
-}
+const Login = () => {
+  return (
+    <Container maxWidth="sm">
+      <Box sx={{ marginTop: 8 }}>
+        <Typography variant="h4" align="center" gutterBottom>Login</Typography>
+        <LoginFormOrganism />
+      </Box>
+    </Container>
+  );
+};
 
-export default LoginPage;
+export default Login;
