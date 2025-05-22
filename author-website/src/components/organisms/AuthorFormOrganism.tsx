@@ -1,7 +1,7 @@
 import { Formik, Form, type FormikHelpers } from 'formik';
-import * as Yup from 'yup';
-import InputFieldAtom from '../molecules/InputFieldMolecule';
+import InputFieldMolecule from '../molecules/InputFieldMolecule';
 import ButtonAtom from '../atoms/ButtonAtom';
+import { useNavigate } from 'react-router-dom';
 
 type AuthorFormValues = {
   author_name: string;
@@ -17,20 +17,37 @@ const AuthorFormOrganism = ({
   initialValues = { author_name: '', birth_date: '' },
   onSubmit,
 }: AuthorFormOrganismProps) => {
-  const validationSchema = Yup.object({
-    author_name: Yup.string().required('Name ist erforderlich'),
-    birth_date: Yup.string().required('Geburtsdatum ist erforderlich'),
-  });
+  const navigate = useNavigate();
+
+  const validate = (values: AuthorFormValues) => {
+    const errors: Partial<AuthorFormValues> = {};
+
+    if (!values.author_name.trim()) {
+      errors.author_name = 'Bitte gib einen Namen ein';
+    } else if (values.author_name.length < 3) {
+      errors.author_name = 'Name muss mindestens 3 Zeichen lang sein';
+    } else if (values.author_name.length > 100) {
+      errors.author_name = "Name darf nicht läger als 100 Zeichen sein"
+    }
+
+    if (!values.birth_date) {
+      errors.birth_date = 'Geburtsdatum ist erforderlich';
+    } else if (new Date(values.birth_date) > new Date()) {
+        errors.birth_date = 'Geburtsdatum darf nicht in der Zukunft liegen';
+    }
+
+    return errors;
+  };
 
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={validationSchema}
+      validate={validate}
       onSubmit={onSubmit}
     >
       {({ values, handleChange, handleBlur, errors, touched, isSubmitting }) => (
         <Form>
-          <InputFieldAtom
+          <InputFieldMolecule
             name="author_name"
             label="Autorname"
             type="text"
@@ -40,9 +57,9 @@ const AuthorFormOrganism = ({
             error={touched.author_name && errors.author_name ? errors.author_name : undefined}
           />
 
-          <InputFieldAtom
+          <InputFieldMolecule
             name="birth_date"
-            label="Geburtsdatum"
+            label=""
             type="date"
             value={values.birth_date}
             onChange={handleChange}
@@ -50,9 +67,14 @@ const AuthorFormOrganism = ({
             error={touched.birth_date && errors.birth_date ? errors.birth_date : undefined}
           />
 
-          <ButtonAtom type="submit" disabled={isSubmitting}>
-            Speichern
-          </ButtonAtom>
+          <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
+            <ButtonAtom type="submit" disabled={isSubmitting}>
+              Speichern
+            </ButtonAtom>
+            <ButtonAtom type="button" onClick={() => navigate('/authors')}>
+              Abbrechen
+            </ButtonAtom>
+          </div>
         </Form>
       )}
     </Formik>

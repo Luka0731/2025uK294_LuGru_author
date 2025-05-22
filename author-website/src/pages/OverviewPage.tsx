@@ -51,7 +51,7 @@ const OverviewPage = () => {
       </Typography>
 
       <Stack direction="row" spacing={2} mb={3}>
-        <ButtonAtom onClick={() => navigate("/authors/create")}>Autor hinzufügen</ButtonAtom>
+        <ButtonAtom onClick={() => navigate("/authors/new")}>Autor hinzufügen</ButtonAtom>
         <ButtonAtom onClick={handleLogout}>Logout</ButtonAtom>
       </Stack>
 

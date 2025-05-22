@@ -13,11 +13,10 @@ function App() {
       <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
-
-          <Route path="/authors" element={<PrivateRoute><OverviewPage /></PrivateRoute>}/>
+          <Route path="/authors/new" element={<PrivateRoute><AuthorCreatePage /></PrivateRoute>}/>
           <Route path="/authors/:id" element={<PrivateRoute><AuthorDetailPage /></PrivateRoute>}/>
+          <Route path="/authors" element={<PrivateRoute><OverviewPage /></PrivateRoute>}/>
           <Route path="/authors/:id/edit" element={<PrivateRoute><AuthorEditPage /></PrivateRoute>}/>
-          <Route path="/author/create" element={<PrivateRoute><AuthorCreatePage /></PrivateRoute>}/>
         </Routes>
     </BrowserRouter>
   );
