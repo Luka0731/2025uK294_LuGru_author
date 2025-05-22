@@ -11,7 +11,7 @@ Das Projekt basiert auf **React**, **Atomic Design**, **Formik**, **JWT-Auth**, 
 
 - Login & Registrierung
 - Liste von hunderten Autoren 
-- Autoren anlegen, anzeigen, bearbeiten und löschen (CRUD)
+- Autoren erstellen, anzeigen, bearbeiten und löschen (CRUD)
 
 ---
 
@@ -28,12 +28,9 @@ docker run -p 3030:3000 --name restdb -d devnyzh/rest-jsondb
 docker start restdb 
 ```
 
-Stelle sicher, dass dein Backend mit `json-server-auth` auf Port **3030** läuft:
-
 Frontend aufsetzen:
 ```bash
 npm install
-npm run dev
 npm install @mui/material @emotion/react @emotion/styled @mui/icons-material
 npm install axios
 npm install formik
@@ -41,7 +38,7 @@ npm install formik yup
 npm install --save-dev @types/yup
 npm install react-router-dom
 npm install --save-dev @types/react-router-dom
-Rfc 
+npm run dev
 ```
 
 ---
