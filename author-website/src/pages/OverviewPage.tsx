@@ -5,7 +5,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { Stack } from "@mui/material";
 import ButtonAtom from "../components/atoms/ButtonAtom";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 export type Author = {
   id: string;
@@ -40,8 +40,8 @@ const OverviewPage = () => {
   }, []);
 
   function handleLogout(): void {
-    localStorage.removeItem('token');
-    navigate('/login');
+    localStorage.removeItem("token");
+    navigate("/login");
   }
 
   return (
@@ -51,7 +51,9 @@ const OverviewPage = () => {
       </Typography>
 
       <Stack direction="row" spacing={2} mb={3}>
-        <ButtonAtom onClick={() => navigate("/authors/new")}>Autor hinzufügen</ButtonAtom>
+        <ButtonAtom onClick={() => navigate("/authors/new")}>
+          Autor hinzufügen
+        </ButtonAtom>
         <ButtonAtom onClick={handleLogout}>Logout</ButtonAtom>
       </Stack>
 

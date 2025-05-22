@@ -1,5 +1,5 @@
-import TextField from '@mui/material/TextField';
-import React from 'react';
+import TextField from "@mui/material/TextField";
+import React from "react";
 
 type InputProps = {
   name: string;
@@ -15,7 +15,7 @@ type InputProps = {
 const InputAtom = ({
   name,
   label,
-  type = 'text',
+  type = "text",
   value,
   onChange,
   onBlur,

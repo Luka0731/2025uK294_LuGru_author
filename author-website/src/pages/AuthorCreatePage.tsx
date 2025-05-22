@@ -1,9 +1,9 @@
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import AuthorFormOrganism from '../components/organisms/AuthorFormOrganism';
-import { createAuthor } from '../services/authorService';
-import { useNavigate } from 'react-router-dom';
-import { type FormikHelpers } from 'formik';
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import AuthorFormOrganism from "../components/organisms/AuthorFormOrganism";
+import { createAuthor } from "../services/authorService";
+import { useNavigate } from "react-router-dom";
+import { type FormikHelpers } from "formik";
 
 type AuthorFormValues = {
   author_name: string;
@@ -19,9 +19,9 @@ const AuthorCreatePage = () => {
   ) => {
     try {
       await createAuthor(values);
-      navigate('/authors');
+      navigate("/authors");
     } catch (error) {
-      console.error('Fehler beim Erstellen des Autors:', error);
+      console.error("Fehler beim Erstellen des Autors:", error);
     } finally {
       setSubmitting(false);
     }

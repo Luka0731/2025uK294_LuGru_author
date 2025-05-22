@@ -1,6 +1,5 @@
-// src/components/molecules/InputField.tsx
-import React from 'react';
-import InputAtom from '../atoms/InputAtom';
+import React from "react";
+import InputAtom from "../atoms/InputAtom";
 
 type InputFieldProps = {
   name: string;
@@ -15,7 +14,7 @@ type InputFieldProps = {
 const InputFieldMolecule = ({
   name,
   label,
-  type = 'text',
+  type = "text",
   value,
   onChange,
   onBlur,

@@ -1,5 +1,5 @@
-import AuthorCardMolecule from '../molecules/AuthorCardMolecule';
-import Stack from '@mui/material/Stack';
+import AuthorCardMolecule from "../molecules/AuthorCardMolecule";
+import Stack from "@mui/material/Stack";
 
 export type Author = {
   id: string;
@@ -12,7 +12,10 @@ type AuthorListOrganismProps = {
   onDeleted: (id: string) => void;
 };
 
-const AuthorListOrganism = ({ authors, onDeleted }: AuthorListOrganismProps) => {
+const AuthorListOrganism = ({
+  authors,
+  onDeleted,
+}: AuthorListOrganismProps) => {
   const handleDelete = (id: string) => {
     onDeleted(id);
   };

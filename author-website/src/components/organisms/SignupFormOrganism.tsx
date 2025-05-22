@@ -1,10 +1,10 @@
-import { Formik, Form, type FormikHelpers } from 'formik';
-import * as Yup from 'yup';
-import InputFieldMolecule from '../molecules/InputFieldMolecule';
-import ButtonAtom from '../atoms/ButtonAtom';
-import { signup } from '../../services/authService';
-import { useNavigate } from 'react-router-dom';
-import { AxiosError } from 'axios';
+import { Formik, Form, type FormikHelpers } from "formik";
+import * as Yup from "yup";
+import InputFieldMolecule from "../molecules/InputFieldMolecule";
+import ButtonAtom from "../atoms/ButtonAtom";
+import { signup } from "../../services/authService";
+import { useNavigate } from "react-router-dom";
+import { AxiosError } from "axios";
 
 type SignupValues = {
   email: string;
@@ -12,13 +12,13 @@ type SignupValues = {
 };
 
 const initialValues: SignupValues = {
-  email: '',
-  password: '',
+  email: "",
+  password: "",
 };
 
 const validationSchema = Yup.object({
-  email: Yup.string().email('Ungültige E-Mail').required('Pflichtfeld'),
-  password: Yup.string().min(6, 'Mind. 6 Zeichen').required('Pflichtfeld'),
+  email: Yup.string().email("Ungültige E-Mail").required("Pflichtfeld"),
+  password: Yup.string().min(6, "Mind. 6 Zeichen").required("Pflichtfeld"),
 });
 
 const SignupFormOrganism = () => {
@@ -30,11 +30,11 @@ const SignupFormOrganism = () => {
   ) => {
     try {
       await signup(values.email, values.password);
-      navigate('/login');
+      navigate("/login");
     } catch (error) {
       const axiosError = error as AxiosError;
       if (axiosError.response?.status === 400) {
-        setErrors({ email: 'Registrierung fehlgeschlagen', password: ' ' });
+        setErrors({ email: "Registrierung fehlgeschlagen", password: " " });
       } else {
         console.error(axiosError);
       }
@@ -49,7 +49,14 @@ const SignupFormOrganism = () => {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      {({ values, handleChange, handleBlur, errors, touched, isSubmitting }) => (
+      {({
+        values,
+        handleChange,
+        handleBlur,
+        errors,
+        touched,
+        isSubmitting,
+      }) => (
         <Form>
           <InputFieldMolecule
             name="email"
@@ -68,10 +75,14 @@ const SignupFormOrganism = () => {
             value={values.password}
             onChange={handleChange}
             onBlur={handleBlur}
-            error={touched.password && errors.password ? errors.password : undefined}
+            error={
+              touched.password && errors.password ? errors.password : undefined
+            }
           />
 
-          <ButtonAtom type="submit" disabled={isSubmitting}>Registrieren</ButtonAtom>
+          <ButtonAtom type="submit" disabled={isSubmitting}>
+            Registrieren
+          </ButtonAtom>
         </Form>
       )}
     </Formik>
