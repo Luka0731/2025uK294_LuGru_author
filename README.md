@@ -1,5 +1,3 @@
-# 2025uK294_LuGru_author
-
 # Author Webseite – üK 294 Projekt
 
 Dies ist ein interaktives Frontend zur Verwaltung von Autoren. Erstellt im Rahmen von üK 294.  
