@@ -5,7 +5,6 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Label from "../atoms/LabelAtom";
 import Button from "../atoms/ButtonAtom";
-import Stack from "@mui/material/Stack";
 import { useNavigate } from "react-router-dom";
 
 const AuthorDetailCardOrganism = () => {
@@ -50,12 +49,7 @@ const AuthorDetailCardOrganism = () => {
         {author.birth_date}
       </Typography>
 
-      <Stack direction="row" spacing={2} mt={3}>
-        <Button onClick={() => navigate("/authors")}>Zurück</Button>
-        <Button onClick={() => navigate(`/authors/${id}/edit`)}>
-          Bearbeiten
-        </Button>
-      </Stack>
+      <Button onClick={() => navigate("/authors")}>Zurück</Button>
     </Box>
   );
 };
